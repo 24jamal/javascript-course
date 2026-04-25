@@ -1,0 +1,60 @@
+<style>
+    body {
+        font-size: 3em;
+        font-family: Helvetica;
+        text-align: center;
+    }
+
+    .btnId {
+        font-size: 1em;
+        padding: 5px 25px;
+        border-radius: 5px;
+    }
+
+    .labelClass {
+        font-size: 2em;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnId">Roll</button><br>
+    <label id="labelContent1" class="labelClass">0</label><br>
+    <label id="labelContent2" class="labelClass">0</label><br>
+    <label id="labelContent3" class="labelClass">0</label><br>
+
+</body>
+
+</html>
+
+
+<script>
+
+    const roll_button = document.getElementById("btnId");
+
+    let min = 1;
+    let max = 6;
+
+    roll_button.onclick = function () {
+        let random_no1 = Math.floor(Math.random() * (max - min) + min);
+        let random_no2 = Math.floor(Math.random() * (max - min) + min);
+        let random_no3 = Math.floor(Math.random() * (max - min) + min);
+
+        console.log(random_no1);
+
+        document.getElementById("labelContent1").textContent = random_no1;
+        document.getElementById("labelContent2").textContent = random_no2;
+        document.getElementById("labelContent3").textContent = random_no3;
+
+    }
+
+
+</script>
