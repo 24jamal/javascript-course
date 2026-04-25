@@ -1,7 +1,7 @@
 console.log("--------------------------------------------------")
 console.log("Switches :");
 
-let marks = 10;
+let marks = 88;
 
 switch (true) {
 
