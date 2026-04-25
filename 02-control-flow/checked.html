@@ -1,0 +1,68 @@
+<style>
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="checkbox" id='checkboxid' />
+    <label for="checkboxid">Subscribe</label><br>
+
+    <input type="radio" name="payment" id="VisaId" />
+    <label for="VisaId">Visa</label><br>
+
+    <input type="radio" name="payment" id="MasterCardId" />
+    <label for="MasterCardId">MasterCard</label><br>
+
+    <input type="radio" name="payment" id="PaypalId" />
+    <label for="PaypalId">Paypal</label><br>
+
+    <input type="submit" id="submitBtn" /><br>
+    <h2 id="myh2-1"></h2>
+    <h2 id="myh2-2"></h2>
+</body>
+
+</html>
+
+<script>
+    const submitBtn = document.getElementById("submitBtn");
+    const checkbox = document.getElementById("checkboxid");
+    const visabtn = document.getElementById("VisaId");
+    const mcbtn = document.getElementById("MasterCardId");
+    const paypalbtn = document.getElementById("PaypalId");
+
+    submitBtn.onclick = function () {
+        console.log("hello")
+        if (checkbox.checked) {
+            document.getElementById("myh2-1").textContent = "Youre subscribed to our program";
+            if (visabtn.checked) {
+                console.log("visa yes");
+                document.getElementById("myh2-2").textContent = "Youre paying with VISA";
+
+            }
+
+            if (mcbtn.checked) {
+                console.log("MC yes");
+                document.getElementById("myh2-2").textContent = "Youre paying with MasterCard";
+
+            }
+            if (paypalbtn.checked) {
+                console.log("Paypal yes");
+                document.getElementById("myh2-2").textContent = "Youre paying with Paypal";
+
+            }
+
+        }
+
+
+
+    }
+</script>
