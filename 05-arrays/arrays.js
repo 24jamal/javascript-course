@@ -1,3 +1,6 @@
+console.log("--------------------------------------------------")
+console.log("Arrays :");
+
 let fruits = ["banana", "coconut", "apple"];
 
 fruits.push("Mango");
