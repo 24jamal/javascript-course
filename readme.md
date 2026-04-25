@@ -13,55 +13,120 @@ javascript-course/
 │
 ├── 01-basics/
 │   ├── variables.js
-│   ├── operators.js
-│   ├── user-input.js
+│   ├── arithmetic-operators.js
+│   ├── user-input/
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
 │   ├── type-conversion.js
 │   ├── constants.js
+│   ├── math-object.js
+│   ├── random-number.js
+│   ├── string-methods.js
+│   ├── string-slicing.js
+│   └── method-chaining.js
 │
 ├── 02-control-flow/
 │   ├── if-statements.js
-│   ├── ternary.js
-│   ├── switch.js
+│   ├── checked-property/
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── ternary-operator.js
+│   ├── switches.js
 │   ├── logical-operators.js
+│   └── strict-equality.js
 │
 ├── 03-loops/
-│   ├── while-loop.js
-│   ├── for-loop.js
+│   ├── while-loops.js
+│   └── for-loops.js
 │
 ├── 04-functions/
 │   ├── functions.js
-│   ├── scope.js
+│   ├── variable-scope.js
 │   ├── callbacks.js
+│   ├── function-expressions.js
 │   ├── arrow-functions.js
+│   ├── closures.js
+│   └── settimeout.js
 │
 ├── 05-arrays/
 │   ├── arrays.js
+│   ├── spread-operator.js
+│   ├── rest-parameters.js
+│   ├── foreach.js
 │   ├── map.js
 │   ├── filter.js
 │   ├── reduce.js
+│   ├── arrays-of-objects.js
+│   ├── sorting.js
+│   └── shuffle-array.js
 │
 ├── 06-objects/
 │   ├── objects.js
+│   ├── this-keyword.js
+│   ├── constructors.js
 │   ├── classes.js
+│   ├── static-keyword.js
 │   ├── inheritance.js
+│   ├── super-keyword.js
+│   ├── getters-setters.js
+│   ├── destructuring.js
+│   ├── nested-objects.js
+│   └── dates.js
 │
-├── 07-dom/
-│   ├── dom-intro.js
-│   ├── selectors.js
-│   ├── events.js
-│
-├── 08-async/
-│   ├── async.js
+├── 07-async/
+│   ├── es6-modules.js
+│   ├── asynchronous-code.js
+│   ├── error-handling.js
+│   ├── callback-hell.js
 │   ├── promises.js
-│   ├── fetch-api.js
+│   ├── async-await.js
+│   ├── json-files.js
+│   └── fetch-api.js
 │
-├── 09-projects/
-│   ├── counter.html
-│   ├── number-guess.html
-│   ├── calculator.html
-│   ├── weather-app.html
+├── 08-dom/
+│   ├── what-is-dom.js
+│   ├── element-selectors/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── dom-navigation/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── add-change-html/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── mouse-events/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── key-events/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── hide-show-html/
+│   │   ├── index.html
+│   │   └── script.js
+│   ├── nodelists/
+│   │   ├── index.html
+│   │   └── script.js
+│   └── classlist/
+│       ├── index.html
+│       └── script.js
 │
-└── index.html
+└── 09-projects/
+    ├── counter-program/
+    │   ├── index.html
+    │   ├── style.css
+    │   └── script.js
+    ├── number-guessing-game/
+    ├── temperature-converter/
+    ├── dice-roller/
+    ├── random-password-generator/
+    ├── digital-clock/
+    ├── stopwatch/
+    ├── calculator/
+    ├── rock-paper-scissors/
+    ├── image-slider/
+    └── weather-app/
 ```
 
 ---
