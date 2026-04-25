@@ -1,8 +1,7 @@
 console.log("--------------------------------------------------")
 console.log("Method Chaining");
 
-let usernameA = window.prompt("Enter your name");
-
+let usernameA = "BrO cODe";
 let string = usernameA.trim();
 
 let letter = string.slice(0, 1);
