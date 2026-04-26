@@ -11,6 +11,10 @@ class Animal {
     sleep() {
         console.log(`${this.name} is sleepinh`);
     }
+
+    move(speed) {
+        console.log(`${this.name} moves at the ${speed}`);
+    }
 }
 
 class Rabbit extends Animal {
@@ -22,7 +26,8 @@ class Rabbit extends Animal {
         this.runSpeed = runSpeed;
     }
     run() {
-        console.log(`${this.name} is running`)
+        console.log(`${this.name} is running`);
+        super.move(this.runSpeed);
     }
 
 }
@@ -35,7 +40,9 @@ class Hawk extends Animal {
         this.flySpeed = flySpeed;
     }
     fly() {
-        console.log(`${this.name} is flying`)
+        console.log(`${this.name} is flying`);
+        super.move(this.flySpeed);
+
     }
 
 }
@@ -50,7 +57,9 @@ class Fish extends Animal {
         this.swimSpeed = swimSpeed;
     }
     swim() {
-        console.log(`${this.name} is swimming`)
+        console.log(`${this.name} is swimming`);
+        super.move(this.swimSpeed);
+
     }
 
 }
