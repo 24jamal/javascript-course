@@ -12,6 +12,7 @@ function isOdd(element) {
     return element % 2 != 0;
 }
 
+
 let evennums = numbers2.filter(isEven);
 for (let i = 0; i < evennums.length; i++) {
 
@@ -57,4 +58,12 @@ for (let word of shortwords) {
     console.log(word);
 }
 
+console.log("Adult Array");
+let ages = [1, 13, 45, 34, 29, 54, 65, 24];
+
+adults = ages.filter((element) => (element > 18));
+
+for (let i = 0; i < adults.length; i++) {
+    console.log(adults[i]);
+}
 
