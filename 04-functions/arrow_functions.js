@@ -17,7 +17,7 @@ const hello2 = function () {
 
 hello2();
 
-//Arrow Function
+//Arrow Function (Avoid arrow functions in JS objects use normal functions declarations or function expressions)
 const hello3 = () => console.log("Hello Earth");
 
 const sumnums = (a, b) => a + b;
