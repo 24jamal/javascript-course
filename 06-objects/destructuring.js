@@ -1,5 +1,5 @@
 console.log("--------------------------------------------------")
-console.log("Destruturing :");
+console.log("Destructuring :");
 
 //destruturing = extract values from arrays and objects,
 //then assign to variables in a convenient way
