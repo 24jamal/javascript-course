@@ -1,6 +1,3 @@
-# ──────────────────────────────────────────────
-# GitHub Actions CI/CD — JavaScript Course
-# ──────────────────────────────────────────────
 name: CI/CD Pipeline
 
 on:
@@ -10,9 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  # ════════════════════════════════════════════
-  # JOB 1 · Lint (ESLint + HTML Validate)
-  # ════════════════════════════════════════════
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -23,35 +18,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
 
       - name: Bootstrap package.json if missing
-        run: |
-          if [ ! -f package.json ]; then npm init -y; fi
+        run: if [ ! -f package.json ]; then npm init -y; fi
 
       - name: Install ESLint
         run: npm install --save-dev eslint
 
       - name: Create ESLint config if missing
         run: |
-          if [ ! -f eslint.config.js ] && [ ! -f .eslintrc.json ]; then
-            cat > .eslintrc.json <<'EOF'
-            {
-              "env": { "browser": true, "es2021": true },
-              "extends": "eslint:recommended",
-              "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
-              "rules": {
-                "no-unused-vars": "warn",
-                "no-undef": "warn"
-              }
-            }
-EOF
+          if [ ! -f .eslintrc.json ]; then
+            echo '{"env":{"browser":true,"es2021":true},"extends":"eslint:recommended","parserOptions":{"ecmaVersion":"latest","sourceType":"module"},"rules":{"no-unused-vars":"warn","no-undef":"warn"}}' > .eslintrc.json
           fi
 
       - name: Run ESLint
         run: npx eslint "**/*.js" --ignore-pattern "node_modules/**"
-        continue-on-error: true  # warns but doesn't fail the pipeline
+        continue-on-error: true
 
       - name: Install html-validate
         run: npm install --save-dev html-validate
@@ -60,9 +42,6 @@ EOF
         run: npx html-validate "**/*.html" --ignore "node_modules/**"
         continue-on-error: true
 
-  # ════════════════════════════════════════════
-  # JOB 2 · Test (Jest + jsdom)
-  # ════════════════════════════════════════════
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -74,22 +53,19 @@ EOF
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: '**/package-lock.json'
 
       - name: Bootstrap package.json if missing
-        run: |
-          if [ ! -f package.json ]; then npm init -y; fi
+        run: if [ ! -f package.json ]; then npm init -y; fi
 
       - name: Install Jest
         run: npm install --save-dev jest jest-environment-jsdom
 
-      - name: Run tests (skip gracefully if none exist)
+      - name: Run tests
         run: |
           if find . -name "*.test.js" -not -path "*/node_modules/*" | grep -q .; then
             npx jest --ci --coverage --coverageDirectory=coverage
           else
-            echo "No test files found — skipping Jest run."
+            echo "No test files found - skipping."
           fi
 
       - name: Upload coverage report
@@ -100,9 +76,6 @@ EOF
           path: coverage/
           retention-days: 7
 
-  # ════════════════════════════════════════════
-  # JOB 3 · Security Audit
-  # ════════════════════════════════════════════
   audit:
     name: Security Audit
     runs-on: ubuntu-latest
@@ -117,24 +90,12 @@ EOF
           node-version: 20
 
       - name: Bootstrap package.json if missing
-        run: |
-          if [ ! -f package.json ]; then npm init -y; fi
+        run: if [ ! -f package.json ]; then npm init -y; fi
 
       - name: Run npm audit
-        run: |
-          DEPS=$(node -e "const p=require('./package.json'); \
-            const d=Object.keys({...p.dependencies||{},...p.devDependencies||{}}); \
-            console.log(d.length)")
-          if [ "$DEPS" -gt 0 ]; then
-            npm audit --audit-level=high
-          else
-            echo "No external dependencies to audit."
-          fi
+        run: npm audit --audit-level=high
         continue-on-error: true
 
-  # ════════════════════════════════════════════
-  # JOB 4 · Deploy to GitHub Pages
-  # ════════════════════════════════════════════
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
@@ -156,7 +117,7 @@ EOF
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .        # serve the whole repo as a static site
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
