@@ -1,0 +1,22 @@
+#myButton {
+
+    font-size: 3rem;
+}
+
+.enabled {
+
+    background-color: green;
+
+}
+
+
+.disabled {
+
+    background-color: hsl(266, 62%, 43%);
+    color: hsl(0, 0, 0.80);
+}
+
+.hover {
+    font-weight: bolder;
+    background-color: hsla(0, 0, 0, 0.2);
+}
